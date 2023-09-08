@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Passport;
 
 use App\Http\Requests\Passport\CommSendEmailVerify;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -34,6 +35,11 @@ class CommController extends Controller
             }
         }
         $email = $request->input('email');
+        $user = User::where('email', $email)->first();
+        if (!$user) {
+            abort(500, __('This email is not registered in the system'));
+        }
+
         if (Cache::get(CacheKey::get('LAST_SEND_EMAIL_VERIFY_TIMESTAMP', $email))) {
             abort(500, __('Email verification code has been sent, please request again later'));
         }
