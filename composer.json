@@ -1,9 +1,9 @@
 {
-    "name": "v2board/v2board",
+    "name": "DrDeanWinchester/V2BoardPro",
     "type": "project",
-    "description": "v2board is a proxy protocol manage.",
+    "description": "V2BoardPro is a proxy protocol manage.",
     "keywords": [
-        "v2board",
+        "V2BoardPro",
         "v2ray",
         "shadowsocks",
         "trojan",
